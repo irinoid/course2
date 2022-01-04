@@ -11,6 +11,9 @@ public class ConstantsForTests {
     public static final String JAVA_QUESTION_2 = "2";
     public static final String JAVA_ANSWER_2 = "2";
     public static final Question QUESTION_2 = new Question(JAVA_QUESTION_2, JAVA_ANSWER_2);
+    public static final String JAVA_QUESTION_6 = "2+2";
+    public static final String JAVA_ANSWER_6 = "4";
+    public static final Question QUESTION_6 = new Question(JAVA_QUESTION_6, JAVA_ANSWER_6);
 
     public static final String JAVA_QUESTION_3 = "Java_Question_Test3";
     public static final String JAVA_ANSWER_3 = "Java_Answer_Test3";
@@ -19,7 +22,9 @@ public class ConstantsForTests {
     public static final String JAVA_QUESTION_5 = "Java_Question_Test5";
     public static final String JAVA_ANSWER_5 = "Java_Answer_Test5";
 
-    public static final Collection<Question> TEST_LIST = new ArrayList<>(List.of(new Question(JAVA_QUESTION_3, JAVA_ANSWER_3),
+    public static final Question QUESTION_3 = new Question(JAVA_QUESTION_3, JAVA_ANSWER_3);
+
+    public static final ArrayList<Question> TEST_LIST = new ArrayList<>(List.of(new Question(JAVA_QUESTION_3, JAVA_ANSWER_3),
             new Question(JAVA_QUESTION_4, JAVA_ANSWER_4),
             new Question(JAVA_QUESTION_5, JAVA_ANSWER_5)));
 
