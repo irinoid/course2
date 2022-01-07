@@ -13,18 +13,17 @@ public class MathQuestionRepository implements QuestionRepository{
 
     public MathQuestionRepository() {
         this.mathQuestionList = new ArrayList<>();
-
-        mathQuestionList.add(new Question("1+1", "2"));
-        mathQuestionList.add(new Question("2+2", "4"));
-        mathQuestionList.add(new Question("3+3", "6"));
-        mathQuestionList.add(new Question("4+4", "8"));
-        mathQuestionList.add(new Question("5+5", "10"));
-        mathQuestionList.add(new Question("6+6", "12"));
-        mathQuestionList.add(new Question("7+7", "14"));
     }
 
     @PostConstruct
     public void init(){
+        add(new Question("1+1", "2"));
+        add(new Question("2+2", "4"));
+        add(new Question("3+3", "6"));
+        add(new Question("4+4", "8"));
+        add(new Question("5+5", "10"));
+        add(new Question("6+6", "12"));
+        add(new Question("7+7", "14"));
         System.out.println("This is from the init method math");
     }
 

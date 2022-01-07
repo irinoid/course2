@@ -45,6 +45,13 @@ class JavaQuestionServiceTest {
     }
 
     @Test
+    public void shouldNotFoundExceptionWhenRemoveQuestion3() {
+        when(javaQuestionRepository.remove(QUESTION_6))
+                .thenThrow(QuestionNotFoundException.class);
+        assertThrows(QuestionNotFoundException.class, () -> out.remove(QUESTION_6));
+    }
+
+    @Test
     public void shouldReturnTestListWhenGetAll() {
         when(javaQuestionRepository.getAll())
                 .thenReturn(TEST_LIST);

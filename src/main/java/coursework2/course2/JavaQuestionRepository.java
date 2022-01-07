@@ -11,18 +11,18 @@ public class JavaQuestionRepository implements QuestionRepository {
 
     public JavaQuestionRepository() {
         this.javaQuestionList = new ArrayList<>();
-
-        javaQuestionList.add(new Question("1", "1"));
-        javaQuestionList.add(new Question("2", "2"));
-        javaQuestionList.add(new Question("3", "3"));
-        javaQuestionList.add(new Question("4", "4"));
-        javaQuestionList.add(new Question("5", "5"));
-        javaQuestionList.add(new Question("6", "6"));
-        javaQuestionList.add(new Question("7", "7"));
     }
 
     @PostConstruct
     public void init() {
+        add(new Question("1", "1"));
+        add(new Question("2", "2"));
+        add(new Question("3", "3"));
+        add(new Question("4", "4"));
+        add(new Question("5", "5"));
+        add(new Question("6", "6"));
+        add(new Question("7", "7"));
+
         System.out.println("This is from the init method java");
     }
 

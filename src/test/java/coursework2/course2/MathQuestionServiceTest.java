@@ -37,12 +37,17 @@ class MathQuestionServiceTest {
                 .thenReturn(QUESTION_1);
         assertEquals(QUESTION_1, out.add(QUESTION_1));
     }
-
     @Test
     public void shouldReturnRemoveQuestion2WhenRemoveQuestion2() {
+        when(mathQuestionRepository.remove(QUESTION_2))
+                .thenReturn(QUESTION_2);
+        assertEquals(QUESTION_2, out.remove(QUESTION_2));
+    }
+    @Test
+    public void shouldNotFoundExceptionWhenRemoveQuestion3() {
         when(mathQuestionRepository.remove(QUESTION_3))
-                .thenReturn(QUESTION_3);
-        assertEquals(QUESTION_3, out.remove(QUESTION_3));
+                .thenThrow(QuestionNotFoundException.class);
+        assertThrows(QuestionNotFoundException.class, () -> out.remove(QUESTION_3));
     }
 
     @Test
