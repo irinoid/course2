@@ -1,6 +1,6 @@
 package coursework2.course2;
 
-import java.util.ArrayList;
+import java.util.Set;
 
 public interface QuestionRepository {
 
@@ -8,5 +8,5 @@ public interface QuestionRepository {
 
     Question remove(Question question);
 
-    ArrayList<Question> getAll();
+    Set<Question> getAll();
 }

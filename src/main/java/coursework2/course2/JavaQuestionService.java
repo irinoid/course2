@@ -9,8 +9,8 @@ import java.util.*;
 
 @Service("java")
 public class JavaQuestionService implements QuestionService {
-    final Random random = new Random();
-    @Autowired
+    private final Random random = new Random();
+
     @Qualifier("javaQuest")
     private QuestionRepository javaQuestionRepository;
 
@@ -21,11 +21,12 @@ public class JavaQuestionService implements QuestionService {
     @Override
     public Question add(String question, String answer) {
         Question newQuestion = new Question(question, answer);
-        if (javaQuestionRepository.getAll().contains(newQuestion)) {
+        /*if (javaQuestionRepository.getAll().contains(newQuestion)) {
             throw new QuestionExistException();
         }
         javaQuestionRepository.getAll().add(newQuestion);
-        return newQuestion;
+        return newQuestion;*/
+        return javaQuestionRepository.add(newQuestion);
     }
 
     @Override
@@ -44,7 +45,9 @@ public class JavaQuestionService implements QuestionService {
     }
 
     @Override
-    public Question getRandom() {
-        return javaQuestionRepository.getAll().get(random.nextInt(javaQuestionRepository.getAll().size()));
+    public Question getRandomQuestion() {
+        List<Question> list = new ArrayList<>(javaQuestionRepository.getAll());
+        int listSize = list.size();
+        return list.get(random.nextInt(listSize));
     }
 }

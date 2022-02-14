@@ -8,28 +8,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
-@RequestMapping("/exam")
+@RequestMapping("/math")
 @RestController
 public class MathQuestionController {
-    @Autowired
-    @Qualifier("math")
+
     private final QuestionService questionService;
 
     public MathQuestionController(@Qualifier("math")QuestionService questionService) {
         this.questionService = questionService;
     }
 
-    @GetMapping("/math/add")
+    @GetMapping("/add")
     public Question addQuestion(@RequestParam String question, @RequestParam String answer) {
         return questionService.add(question, answer);
     }
 
-    @GetMapping("/math/remove")
+    @GetMapping("/remove")
     public Question deleteEmployee(@RequestParam String question, @RequestParam String answer) {
         return questionService.remove(new Question(question, answer));
     }
 
-    @GetMapping("/math")
+    @GetMapping
     public Collection<Question> getQuestion() {
         return questionService.getAll();
     }

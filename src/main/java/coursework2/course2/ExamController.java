@@ -3,7 +3,7 @@ package coursework2.course2;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
-@RequestMapping("/exam")
+
 @RestController
 public class ExamController {
     private final ExaminerService examinerService;

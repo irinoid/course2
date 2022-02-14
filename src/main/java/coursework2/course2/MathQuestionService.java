@@ -4,16 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Random;
+import java.util.*;
 
 @Service("math")
 public class MathQuestionService implements QuestionService {
-    final Random random = new Random();
+    private final Random random = new Random();
 
-    @Autowired
-    @Qualifier("mathQuest")
     private QuestionRepository mathQuestionRepository;
 
     public MathQuestionService( @Qualifier("mathQuest") QuestionRepository mathQuestionRepository) {
@@ -23,10 +19,7 @@ public class MathQuestionService implements QuestionService {
     @Override
     public Question add(String question, String answer) {
         Question newQuestion = new Question(question, answer);
-        if (mathQuestionRepository.getAll().contains(newQuestion)) {
-            throw new QuestionExistException();
-        }
-        mathQuestionRepository.getAll().add(newQuestion);
+        mathQuestionRepository.add(newQuestion);
         return newQuestion;
     }
 
@@ -41,12 +34,14 @@ public class MathQuestionService implements QuestionService {
     }
 
     @Override
-    public ArrayList<Question> getAll() {
-        return mathQuestionRepository.getAll();
+    public Set<Question> getAll() {
+        return new HashSet<>(mathQuestionRepository.getAll());
     }
 
     @Override
-    public Question getRandom() {
-        return mathQuestionRepository.getAll().get(random.nextInt(mathQuestionRepository.getAll().size()));
+    public Question getRandomQuestion() {
+        List<Question> list = new ArrayList<>(mathQuestionRepository.getAll());
+        int listSize = list.size();
+        return list.get(random.nextInt(listSize));
     }
 }

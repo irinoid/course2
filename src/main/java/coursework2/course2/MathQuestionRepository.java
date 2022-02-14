@@ -5,14 +5,16 @@ import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Repository("mathQuest")
 public class MathQuestionRepository implements QuestionRepository{
-    private ArrayList<Question> mathQuestionList;
+    private Set<Question> mathQuestionList;
 
     public MathQuestionRepository() {
-        this.mathQuestionList = new ArrayList<>();
+        this.mathQuestionList = new HashSet<>();
     }
 
     @PostConstruct
@@ -29,11 +31,8 @@ public class MathQuestionRepository implements QuestionRepository{
 
 
     public Question add(Question question) {
-        if (!mathQuestionList.contains(question)) {
             mathQuestionList.add(question);
             return question;
-        }
-        throw new QuestionExistException();
     }
 
     public Question remove(Question question) {
@@ -44,7 +43,7 @@ public class MathQuestionRepository implements QuestionRepository{
         throw new QuestionNotFoundException();
     }
 
-    public ArrayList<Question> getAll() {
+    public Set<Question> getAll() {
         return mathQuestionList;
     }
 }

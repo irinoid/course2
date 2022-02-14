@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 import static coursework2.course2.ConstantsForTests.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -40,7 +41,7 @@ class MathQuestionRepositoryTest {
 
     @Test
     public void getListOfAllJavaQuestions() {
-        ArrayList<Question> result = out.getAll();
+        Set<Question> result = out.getAll();
         Assertions.assertEquals(result, out.getAll());
     }
 

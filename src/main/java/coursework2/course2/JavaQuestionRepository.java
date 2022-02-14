@@ -3,14 +3,15 @@ package coursework2.course2;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 @Repository ("javaQuest")
 public class JavaQuestionRepository implements QuestionRepository {
-    private ArrayList<Question> javaQuestionList;
+    private Set<Question> javaQuestionList;
 
     public JavaQuestionRepository() {
-        this.javaQuestionList = new ArrayList<>();
+        this.javaQuestionList = new HashSet<>();
     }
 
     @PostConstruct
@@ -28,11 +29,8 @@ public class JavaQuestionRepository implements QuestionRepository {
 
     @Override
     public Question add(Question question) {
-        if (!javaQuestionList.contains(question)) {
             javaQuestionList.add(question);
             return question;
-        }
-        throw new QuestionExistException();
     }
 
     @Override
@@ -45,7 +43,7 @@ public class JavaQuestionRepository implements QuestionRepository {
     }
 
     @Override
-    public ArrayList<Question> getAll() {
-        return javaQuestionList;
+    public Set<Question> getAll() {
+        return new HashSet<>(javaQuestionList);
     }
 }

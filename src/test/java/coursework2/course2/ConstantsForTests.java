@@ -1,8 +1,6 @@
 package coursework2.course2;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 public class ConstantsForTests {
     public static final String JAVA_QUESTION_1 = "Java_Question_Test1";
@@ -24,7 +22,7 @@ public class ConstantsForTests {
 
     public static final Question QUESTION_3 = new Question(JAVA_QUESTION_3, JAVA_ANSWER_3);
 
-    public static final ArrayList<Question> TEST_LIST = new ArrayList<>(List.of(new Question(JAVA_QUESTION_3, JAVA_ANSWER_3),
+    public static final Set<Question> TEST_LIST = new HashSet<>(List.of(new Question(JAVA_QUESTION_3, JAVA_ANSWER_3),
             new Question(JAVA_QUESTION_4, JAVA_ANSWER_4),
             new Question(JAVA_QUESTION_5, JAVA_ANSWER_5)));
 

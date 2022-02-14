@@ -1,21 +1,18 @@
 package coursework2.course2;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Random;
+import java.util.*;
 
 @Service
 public class ExaminerServiceImpl implements ExaminerService {
 
-    final Random random = new Random();
-    @Autowired
+    private final Random random = new Random();
+
     @Qualifier("java")
     private final QuestionService javaQuestionService;
-    @Autowired
+
     @Qualifier("math")
     private final QuestionService mathQuestionService;
 
@@ -26,31 +23,21 @@ public class ExaminerServiceImpl implements ExaminerService {
 
     @Override
     public Collection<Question> getQuestions(int amount) {
-        Collection<Question> javaRandomQuestionList = new ArrayList<>();
-        int i = 0;
-        while (i < amount) {
-            Question newRandomQuestion = javaQuestionService.getRandom();
-            if (!javaRandomQuestionList.contains(newRandomQuestion)) {
-                javaRandomQuestionList.add(newRandomQuestion);
-                i++;
-            }
-        }
-        return javaRandomQuestionList;
+        Collection<Question> javaRandomQuestionList = new HashSet<>();
+        return getRandomQuestionList(amount, javaRandomQuestionList, javaQuestionService);
     }
 
-
     public Collection<Question> getMathQuestions(int amount) {
-        Collection<Question> mathRandomQuestionList = new ArrayList<>();
-        int i = 0;
-        while (i < amount) {
+        Collection<Question> mathRandomQuestionList = new HashSet<>();
+        return getRandomQuestionList(amount, mathRandomQuestionList, mathQuestionService);
+    }
 
-            Question newRandomQuestion = mathQuestionService.getRandom();
-            if (!mathRandomQuestionList.contains(newRandomQuestion)) {
-                mathRandomQuestionList.add(newRandomQuestion);
-                i++;
-            }
+    private Collection<Question> getRandomQuestionList(int amount, Collection<Question> List, QuestionService service) {
+        while (List.size() != amount) {
+            Question newRandomQuestion = service.getRandomQuestion();
+            List.add(newRandomQuestion);
         }
-        return mathRandomQuestionList;
+        return List;
     }
 
     @Override
