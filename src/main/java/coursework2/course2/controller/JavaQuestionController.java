@@ -1,6 +1,7 @@
-package coursework2.course2;
+package coursework2.course2.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import coursework2.course2.model.Question;
+import coursework2.course2.interfaces.QuestionService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,13 +9,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
-@RequestMapping("/math")
+
 @RestController
-public class MathQuestionController {
+@RequestMapping("/java")
+public class JavaQuestionController {
 
     private final QuestionService questionService;
 
-    public MathQuestionController(@Qualifier("math")QuestionService questionService) {
+    public JavaQuestionController(@Qualifier("java") QuestionService questionService) {
         this.questionService = questionService;
     }
 

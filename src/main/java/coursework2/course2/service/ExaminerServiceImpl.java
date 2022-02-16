@@ -1,5 +1,8 @@
-package coursework2.course2;
+package coursework2.course2.service;
 
+import coursework2.course2.interfaces.QuestionService;
+import coursework2.course2.model.Question;
+import coursework2.course2.interfaces.ExaminerService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 

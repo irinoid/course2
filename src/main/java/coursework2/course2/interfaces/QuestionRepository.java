@@ -1,4 +1,6 @@
-package coursework2.course2;
+package coursework2.course2.interfaces;
+
+import coursework2.course2.model.Question;
 
 import java.util.Set;
 

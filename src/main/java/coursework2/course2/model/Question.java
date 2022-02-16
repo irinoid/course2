@@ -1,4 +1,4 @@
-package coursework2.course2;
+package coursework2.course2.model;
 
 import java.util.Objects;
 

@@ -1,8 +1,9 @@
-package coursework2.course2;
+package coursework2.course2.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import coursework2.course2.interfaces.QuestionService;
+import coursework2.course2.interfaces.QuestionRepository;
+import coursework2.course2.model.Question;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.*;

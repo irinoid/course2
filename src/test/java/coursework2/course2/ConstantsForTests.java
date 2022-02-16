@@ -1,5 +1,7 @@
 package coursework2.course2;
 
+import coursework2.course2.model.Question;
+
 import java.util.*;
 
 public class ConstantsForTests {

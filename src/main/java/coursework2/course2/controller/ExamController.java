@@ -1,5 +1,7 @@
-package coursework2.course2;
+package coursework2.course2.controller;
 
+import coursework2.course2.interfaces.ExaminerService;
+import coursework2.course2.model.Question;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;

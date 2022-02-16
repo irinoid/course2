@@ -1,5 +1,9 @@
 package coursework2.course2;
 
+import coursework2.course2.exception.QuestionExistException;
+import coursework2.course2.exception.QuestionNotFoundException;
+import coursework2.course2.repository.MathQuestionRepository;
+import coursework2.course2.service.MathQuestionService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

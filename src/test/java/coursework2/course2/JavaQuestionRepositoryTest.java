@@ -1,9 +1,12 @@
 package coursework2.course2;
 
+import coursework2.course2.exception.QuestionExistException;
+import coursework2.course2.exception.QuestionNotFoundException;
+import coursework2.course2.model.Question;
+import coursework2.course2.repository.JavaQuestionRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Set;
 
 import static coursework2.course2.ConstantsForTests.*;

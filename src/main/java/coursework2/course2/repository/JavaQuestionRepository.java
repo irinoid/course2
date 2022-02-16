@@ -1,5 +1,8 @@
-package coursework2.course2;
+package coursework2.course2.repository;
 
+import coursework2.course2.exception.QuestionNotFoundException;
+import coursework2.course2.interfaces.QuestionRepository;
+import coursework2.course2.model.Question;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
